@@ -1,0 +1,228 @@
+/* ==== GLOBAL RESET ==== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==== BASE BODY ==== */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f7f7f7;
+}
+
+/* ==== NAVBAR ==== */
+nav {
+  position: fixed;
+  width: 100%;
+  background: #111;
+  padding: 1rem;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #00adb5;
+}
+
+/* ==== PAGE WRAPPER ==== */
+.page {
+  padding-top: 84px; /* space for fixed nav */
+  min-height: 100vh;
+}
+
+/* ==== HEADER / HERO ==== */
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #222;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #cfcfcf;
+  max-width: 800px;
+  margin: 0.25rem auto 0;
+}
+
+/* ==== CARD LAYOUT (for dashboard & sections) ==== */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 85%;          
+  margin: 2rem auto;       /* remove auto-centering */
+  padding: 1.5rem;
+  overflow: hidden;
+  border-radius: 0;     /* optional: edge-to-edge look */
+}
+
+
+/* Narrower card variant for “journal style” content */
+.card--narrow {
+  max-width: 900px;
+}
+
+/* ==== TABLEAU EMBED WRAPPER ==== */
+.tableau-embed {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 16:10-ish aspect ratio – tweak padding-bottom for other ratios */
+.tableau-embed::before {
+  content: "";
+  display: block;
+  padding-bottom: 66%;
+}
+
+.tableau-embed > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==== BUTTONS ==== */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: #00adb5;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background: #007d82;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  text-align: center;
+  color: #777;
+  font-size: 0.95rem;
+  padding: 2rem 1rem 3rem;
+}
+
+/* ==== REPORT / JOURNAL SECTION ==== */
+.report {
+  /* just a semantic hook; styling mostly uses card + modifiers */
+}
+
+/* Title area inside the report card */
+.report-header {
+  margin-bottom: 1rem;
+}
+
+.report-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.report-subtitle {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Body text inside the report */
+.report-body {
+  font-size: 0.98rem;
+  color: #333;
+}
+
+/* Headings inside the report body */
+.report-body h3 {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.report-body p {
+  margin-bottom: 0.75rem;
+}
+
+/* Simple list styling for points in the journal */
+.report-body ul,
+.report-body ol {
+  margin: 0.5rem 0 1rem 1.25rem;
+}
+
+.report-body li {
+  margin-bottom: 0.3rem;
+}
+
+/* Optional: small “tag” style text (e.g., course name, dataset) */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eee;
+  font-size: 0.75rem;
+  color: #555;
+  margin-right: 0.25rem;
+}
+
+/* ==== FLEX TOOLBAR (e.g., for buttons under dashboard) ==== */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-text {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .page {
+    padding-top: 76px;
+  }
+
+  .card {
+    margin: 1.25rem 0.75rem;
+    padding: 1rem;
+  }
+}

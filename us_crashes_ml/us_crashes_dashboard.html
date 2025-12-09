@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adrian Khlim | US Car Accident Analysis Dashboard and Report</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+
+  <nav>
+    <ul>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <section class="header">
+      <h1>US Car Accident Analysis Dashboard and Report</h1>
+      <p>Interactive exploration of cities with the top car accident counts in the USA.</p>
+    </section>
+
+    <!-- Dashboard card -->
+    <section class="card">
+      <div class='tableauPlaceholder' id='viz1765317421278' style='position: relative'><noscript><a href='#'><img alt='USA Accidents Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USAAccidents&#47;USAAccidentsDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='USAAccidents&#47;USAAccidentsDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USAAccidents&#47;USAAccidentsDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765317421278');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+        <a class="btn" href="https://public.tableau.com/views/USAAccidents/USAAccidentsDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">
+          Open full screen
+        </a>
+        <span style="color:#666;">If the embed doesn't load, use the button to open it directly.</span>
+      </div>
+    </section>
+
+     <!-- REPORT / JOURNAL CARD -->
+    <section class="card">
+      <header class="report-header">
+        <h2>Project Journal & Findings</h2>
+        <p class="report-subtitle">
+          Course: Visual Analytics &nbsp;·&nbsp;
+          <span class="badge">Car Accidents</span>
+          <span class="badge">Tableau</span>
+        </p>
+      </header>
+
+      <div class="report-body">
+        <h3>1. Audience & Intent</h3>
+        <p>
+          The audience for this dashboard includes students, researchers, and engineers interested in the top 10 U.S. cities with the highest number of car accidents. 
+          The audience is also for those interested (or those who live in the top 10 cities or want to move to them), to see how other cities hold up and for those who want to explore accident patterns and trends over time.
+
+        </p>
+        <ul>
+          <li><strong>Audience:</strong> Students, researchers, engineers, curious individuals, and people who plan to move to or away from these top 10 cities. </li>
+          <li><strong>Intent:</strong> To allow exploration of accident and traffic patterns and trends in top U.S. cities. To also guide those who want to move to or away from these cities. To also provide information to push for changes on the roads.</li>
+   
+        </ul>
+
+        <h3>2. Story & Structure</h3>
+        <p>The story being told from the visual reads like a comic book. Essentially from the map of cities, side bar chart of cities, the bar chart under the map, and then the line chart. Essentially the readers get a large (country) view, into a smaller city view, into an hourly view, and finally we go back to a slightly larger view in yearly data to see overall trends.
+            I want users to dive into information, and then wrap it up with an over arching summary or visual.
+        </p>
+        <ul>
+          <li><strong>Map: </strong>This visual first introduces the reader to 100 cities with the highest number of car accidents (but I filtered only a few states for cleanliness). This lets readers examine patterns but also lets them look into a place of their choosing.
+            More importantly, this visual highlights accident counts, and users can easily notice the red dots, which indicate high accident density. This then leads to the side bar chart, where they can see those "red" or "orange" high accident cities side by side.</li>
+          <li><strong>Side Bar Chart:</strong> This chart allows readers to see the top 10 cities and their accident counts side by side. Users can also filter by city and years to gain more insight, while also seeing the average wind speed per accident and severity levels.
+            Readers can also examine the data per year. </li>
+          <li><strong>Accident Count per Hour: </strong> The previous bar chart goes from top 10 cities and accident counts, and now we dive into hourly accident counts, which can be filtered by individual cities or all of them at once, and years. </li>
+          <li><strong> Number of Accidents Yearly: </strong> This line chart provides an overview of accident trends over the years, helping to identify any long-term patterns or changes in accident frequency, such as the COVID drop for traffic, and the increase post COVID.</li>
+          <li><strong>Filters and Interactivity</strong> The dashboard includes filters for cities and years which affect all of the filters. The visuals also affect each other as filters themselves, adding interactivity but also allowing for easier depth in data analysis.</li>
+        </ul>
+
+        <h3>3. Design Choices</h3>
+        <p>
+          I tried to make design choices that would enhance clarity and usability along with adding intuition. It should make sense, colorwise. I also tried to reduce clutter, but this also resulted in having to filter a lot of data out such as states and filtering.
+        </p>
+        <ul>
+          <li><strong>Color Choices:</strong> I chose to use contrasting colors in order to highlight high density accident areas (reds and oranges) versus low density areas (blues). I believe red usually indicates bad or high risk, while blue suggests safer or lower risk areas.</li>
+          <li><strong>Layout & Clutter Reduction: </strong> I like comics and manga, and I wanted it to be simple and easy to read, so I arranged the visuals as 4 symmetric panels. Then, thanks to the Datacamp course on Tableau, I made a lot of tweaks, such as moving the legends or filters to corresponding charts.</li>
+          <li><strong>Typography: </strong>I must admit I did not think much about typography choices, which could be an area for improvement in future iterations. I did however try to make labels and titles make sense. The default Tableau font was quite nice.</li>
+          <li><strong>Spacing: </strong>I really wanted the visuals to take up all the space, as it is simple and only 4 worksheets, and there's not lots of clusters so in this case it is easy to soak in the information or to focus on one visual. This resulted in me dropping the legend/filter area, making them all float instead.</li>
+        </ul>
+
+        <h3>4. Reflection</h3>
+        <p>
+          It was challenging to work with this dataset because I had to convert the timestamps of accidents into useable month/day/year data. I also struggle a lot on what I want to show people, however I think I made solid choices here. I also was 
+          able to put to practice many things I learned from the Tableau Datacamp course, such as floating elements and filtering worksheets. If I had more time, I would have liked to make it work with all states, and only highlight those top cities. I wanted users to sort cities, but not all of the cities. Basically, I wanted it to be more dynamic but still limiting to reduce clutter.
+        </p>
+
+
+        <h3>5. Access</h3>
+        <p>
+          Potential limitations include missing or noisy weather fields, uneven city coverage, 
+          and not explicitly modeling exposure (e.g., vehicle miles traveled). A next step could 
+          be combining this with traffic volume data or extending the analysis into a predictive 
+          model (like the ML project).
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+      Data source: <a href="https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents" target="_blank" rel="noopener">US Accidents (2016 - 2023)</a> · Built by Adrian Khlim  
+    </section>
+  </main>
+
+</body>
+</html>
