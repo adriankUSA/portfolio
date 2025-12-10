@@ -1,111 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Adrian Khlim | Water Consumption Dashboard</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-
-
-    nav {
-      position: fixed;
-      width: 100%;
-      background: #111;
-      padding: 1rem;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-    nav ul { display: flex; justify-content: center; list-style: none; }
-    nav ul li { margin: 0 1rem; }
-    nav ul li a {
-      color: white; text-decoration: none; font-weight: bold; transition: color 0.3s ease;
-    }
-    nav ul li a:hover { color: #00adb5; }
-
-
-    .page {
-      padding-top: 84px; 
-      background: #f7f7f7;
-      min-height: 100vh;
-    }
-
-
-    .header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #222;
-      color: #fff;
-    }
-    .header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    .header p { color: #cfcfcf; max-width: 800px; margin: 0.25rem auto 0; }
-
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
-      overflow: hidden;
-    }
-
-
-    .tableau-embed {
-      position: relative;
-      width: 100%;
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .tableau-embed::before {
-      content: "";
-      display: block;
-      padding-bottom: 66%;
-    }
-    .tableau-embed > iframe {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      border: 0;
-    }
-
-
-    .footer {
-      text-align: center;
-      color: #777;
-      font-size: 0.95rem;
-      padding: 2rem 1rem 3rem;
-    }
-
- 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      background: #00adb5;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-    .btn:hover { background: #007d82; }
-
-
-    @media (max-width: 600px) {
-      .header h1 { font-size: 1.8rem; }
-      .page { padding-top: 76px; }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adrian Khlim | Water Consumption Analysis</title>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
 
-
   <nav>
     <ul>
-      <li><a href="/portfolio">Home</a></li>
+      <li><a href="/portfolio">Home</a></li>        
       <li><a href="/#contact">Contact</a></li>
     </ul>
   </nav>
@@ -113,31 +18,89 @@
   <main class="page">
 
     <section class="header">
-      <h1>Water Consumption & Scarcity Dashboard</h1>
-      <p>Interactive exploration of global and U.S. water usage trends (2000–2024).  
-         In 2024, U.S. total use fell while scarcity rose—pointing to supply-side constraints.</p>
+      <h1>Water Consumption Analysis</h1>
+      <p>A project analyzing water consumption patterns and their impact on sustainability.</p>
     </section>
 
     <!-- Dashboard card -->
     <section class="card">
-      <div class="tableau-embed">
-        <iframe
-          src="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:showVizHome=no&:embed=y"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
+      <div class='tableauPlaceholder' id='viz1765338167254' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wa&#47;WaterConsumption_17619660622730&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='WaterConsumption_17619660622730&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wa&#47;WaterConsumption_17619660622730&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1765338167254');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1327px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
-        <a class="btn" href="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:showVizHome=no" target="_blank" rel="noopener">
+        <a class="btn" href="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">
           Open full screen
         </a>
         <span style="color:#666;">If the embed doesn't load, use the button to open it directly.</span>
       </div>
     </section>
 
+     <!-- REPORT / JOURNAL CARD -->
+    <section class="card">
+      <header class="report-header">
+        <h2>Project Journal & Findings</h2>
+        <p class="report-subtitle">
+          Course: Visual Analytics &nbsp;·&nbsp;
+          <span class="badge">Water Consumption</span>
+          <span class="badge">Tableau</span>
+        </p>
+      </header>
+
+      <div class="report-body">
+        <h3>Audience & Intent</h3>
+        <p>
+          The audience for this dashboard activists for pollution and renewable resources, scientists and students, politicians/government officials and engineers. The dashboard should show trends on water availability and consumption, and 
+          it can help determine time periods or events that may have correlated to the availability or consumption. The dashboard also allows users to see trends of both scarcity and consumption, and how its being used. This can help activists identify
+          points and years of interest, and help engineers or government officials identify when these incidents occur and how to maintain water availability.
+
+        </p>
+
+        <h3>KPIs</h3>
+        <p>
+          Firstly, the target KPIs would be low water scarcity (to indicate availability), and the target for water consumption should be relative, as in high consumption but low scarcity is a target, but high consumption high scarcity is the worst.
+        </p>
+        <ul>
+          <li><strong>Water Scarcity: </strong>I chose water scarcity because this is extremely crucial as it is relative to availability and consumption. It doesn't matter if you consume less water, if water is still scarce, evem if they can correlate.
+          </li>
+
+          <li>
+            <strong>Water Consumption: </strong>This KPI can show many things. It can suggest very high activity (industrial, AI/tech, agriculture). Not only that, but it shows original availability, and it is also needed to see the proportion for scarcity.
+          </li>
+
+          <li>
+            <strong>Consumption Type %: </strong>This is similar to water consumption, but can help see where water usage is going. I predict that if the AI bubble does not pop, industrial water will increase in many countries with data centers.
+          </li>
+        </ul>
+
+        <h3>Design Choices/Dashboard Structure</h3>
+        <p>
+         I used a <strong>line chart </strong>to show trends of water consumption on a large scale. However, I also have a <strong>bar chart</strong>, that you can control and show each year's water consumption and scarcity, so it is interactive and can help reach target KPIs. 
+         Furthermore I chose a <strong>pie chart</strong> since for the types of water consumption, since its only 3 features and gives essential info.
+        </p>
+
+
+        <h3>Data cleaning</h3>
+        <p>
+          No data cleaning was needed, however I did have to filter the countries for the line chart or it would get too cluttered, so I chose the highest 10 in water consumption.
+        </p>
+
+        <h3>Reflection</h3>
+        <p>
+          One thing I couldn't do was make the line chart just show the line, since I added interactivity and allowed filters and worksheets to work together which made me happy, but it just shows the dot at the year when clicking a bar unit. 
+          However, I am happy that I improved the legend area and interactivity since the peer critique. Also on this page it the water scarcity legend is a little covered, but I think on Tableau it looks fine.
+        </p>
+
+
+        <h3>Access</h3>
+        <p>
+          Click here to view this project on GitHub (the HTML): <strong><a href="https://github.com/adriankUSA/portfolio/blob/main/water_consumption/water_consumption_analysis.html" target="_blank" rel="noopener">GitHub Repository</a></strong>
+          Click here to view this dashboard on Tableau: <strong><a href="https://public.tableau.com/shared/K2W5SHDKY?:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Tableau Public Link</a></strong>
+          Click here to view the dataset on Kaggle: <strong><a href="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Kaggle Dataset Link</a></strong>
+        </p>
+      </div>
+    </section>
+
     <!-- Footer -->
     <section class="footer">
-      Data source: Global Water Consumption Dataset (2000–2024) · Built by Adrian Khlim  
+      Data source: <a href="https://www.kaggle.com/datasets/atharvasoundankar/global-water-consumption-dataset-2000-2024" target="_blank" rel="noopener">Global Water Consumption Dataset 2000-2004</a> · Built by Adrian Khlim  
     </section>
   </main>
 
