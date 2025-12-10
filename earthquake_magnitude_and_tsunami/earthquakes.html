@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adrian Khlim | Earthquake Magnitude using Regression</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="/portfolio">Home</a></li>        
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <section class="header">
+      <h1>Earthquake Magnitude using Regression</h1>
+      <p>An analysis of earthquake magnitudes using linear regression.</p>
+    </section>
+
+     <!-- REPORT / JOURNAL CARD -->
+    <section class="card">
+      <header class="report-header">
+        <h2>Project Journal & Findings</h2>
+        <p class="report-subtitle">
+          Course: Visual Analytics &nbsp;·&nbsp;
+          <span class="badge">Earthquakes</span>
+          <span class="badge">Linear Regression</span>
+        </p>
+      </header>
+
+      <div class="report-body">
+        <h3>Introduction</h3>
+        <p>
+            Earthquakes are pretty cool natural events, but they're also scary and devastating. Predicting their magnitude can help prepare for evacuations or rescue relief, or it could even help engineers design buildings looking at magnitude patterns.
+            This data set is the Global Earthquake and Tsunami Risk Assessment Dataset from <a href="https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset" target="_blank" rel="noopener">Kaggle</a>, compiled by Ahmed Uzaki.
+            It has data on 782 earthquakes, and not too many features as there are only 13. All of the data is complete and there is no missing values! The data spans across 22 years, but I think it's mostly big magnitude earthquakes.
+        </p>
+
+        <h3>What is Regression?</h3>
+          <p>
+            Regression is a supervised learning method, and there are different kinds of regression algorithms. Regression typically predicts a continuous numeric value. Basically if you have a function,
+            you give input features, and use that to predict an output feature. In this project I use linear regression to try and predict magnitude. However, it's important to note that logistic regression is not regression, but is a classification 
+            method I typically use. Mostly by default. Anyways, we can measure regression performance using RMSE - Root Mean Squared Error, MAE - Mean Absolute Error, and MSE - Mean Squared Error. The math is confusing, but I do know that it has to do 
+            with least squares.
+          </p>
+
+
+
+        <h3>Data Understanding & Visualization</h3>
+
+        <p>
+          First I wanted to see where earthquakes typically occur. Below you can see where the records occur along with the levels of them. Note that it almost looks like the permieter of continents, such as California's coast.
+        </p>
+        <img src="images/mag_map.PNG" alt="map"/>
+
+        <p>
+            Next we can look at the distribution of earthquakes and their magnitude levels. This tells me that mose earthquakes in the dataset are around a 6.5-7 magnitude level.
+        </p>
+        <img src="images/dist.PNG" alt="map"/>
+
+        <p>
+            Furthermore, we can look at depth versus magnitude. The chart below suggests that high magnitude earthquakes and low magnitude earthquakes can occur at the same depth level.
+        </p>
+
+        <img src="images/depth_vs_mag.PNG" alt="map"/>
+
+        <p>
+            Lastly, I was looking at the heatmap, and what sticks out to me the most is sig & magnitude, which I will keep in the back of my head.
+        </p>
+
+        <img src="images/correlation.PNG" alt="map"/>
+
+        <h3>Data Pre-processing</h3>
+        <p>
+          This dataset consisted of 0 missing values, as it is fully complete. This is great, as it was literally ready for machine learning. I did not have to change anything, but I did drop some columns such as year as I don't think that relates
+          to magnitudes.
+          </p>
+
+
+        <h3>Modeling</h3>
+        <p>
+            For experiment 1, I used linear regression and dropped columns like tsunami and years. Tsunami is an obvious non-predictor, as it is a result of earthquakes. At least that was my thinking.
+        </p>
+
+        <img src="images/ex1.PNG" alt="map"/>
+
+        <p>
+            We can see that mmi has the highest correlation, however all of these have very low correlation coefficient scores, co close to 0. Thus, for experiment 2, I decided to drop mmi and cdi, the highest from both, just to see.
+        </p>
+
+        <img src="images/ex2.PNG" alt="map"/>
+
+        <p>
+           Now I can see that things don't look that much better. I still get very low scores. Thus, I decided to scale the features and see if standardizing the data would make a difference.
+        </p>
+
+        <img src="images/ex3.PNG" alt="map"/>
+
+        <p>
+            Now we finally have a score that is a lot higher, arount 25% or 0.25. This means that there is some correlation to magnitude, although maybe not too heavy or too reliable.
+            Looking at all of the experiments, the results were very lack luster and low coreelation yielding. However after standardizing the features, we can see that sig, or the event significance 
+            which is how big an earthquake is, the number of stations detecting it, how wide it tis felt, and how important it could be, is about 0.25. This means there is some correlation, but not super strong so 
+            not quite reliable, however can give some idea on the magnitude. However just like mmi, sig is something that can or is found after magnitude, thus not being a great predictor, but they do relate.
+        </p>
+        
+
+        <h3>Impact & Conclusion</h3>
+        <p>
+          The impact of this shows how standardizing/scaling features can affect the coefficient values. More importantly, this shows how feature choosing affects the data, and how this could be interpreted incorrectly. 
+          Sig is NOT something that predicts magnitude, because real world use case would not be practical. Why? As said before, if sig is reported by stations and people (like mmi), then that number is usually found after the 
+          magnitude is already found! So unless it takes a long time to get the magnitude, it cannot be considered a predictor.
+        </p>
+
+        <p>
+            I learned the essence of linear regression, but I learned what I cannot use it for. I really wanted to predict tsunamis, but that is classification. Also, I learned that scaling gave way better results, but that could 
+            be bad if the interpretation and understanding is off, which in our case we took a look and understand that we cannot necessarily reliably use this feature as a predictor. I also implemented feature selection and removal,
+            which definitely affected the data.
+        </p>
+
+        <h3>Access</h3>
+        <p>
+          <strong>
+            <a href="earthquake_magnitude_regression.ipynb" download>
+            Download the notebook
+          </a>
+          </strong>
+        <p>
+          Click here to view this project on GitHub (the HTML): <strong><a href="https://github.com/adriankUSA/portfolio/blob/main/earthquake_magnitude_and_tsunami/earthquakes.html" target="_blank" rel="noopener">GitHub Repository</a></strong>
+
+        </p>
+        <p>
+          Click here to view the dataset on Kaggle: <strong><a href="https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset" target="_blank" rel="noopener">Kaggle Dataset Link</a></strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        Data source: <a href="https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset" target="_blank" rel="noopener">Global Earthquake and Tsunami Risk Assessment Dataset</a> · Built by Adrian Khlim  
+        </section>
+  </main>
+
+</body>
+</html>
