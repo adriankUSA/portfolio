@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adrian Khlim | How Family Income Affects Academics</title>
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="/portfolio">Home</a></li>        
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page">
+
+    <section class="header">
+      <h1>How Family Income Affects Academics</h1>
+      <p>A project exploring the correlation between parental income and student academic performance..</p>
+    </section>
+
+     <!-- REPORT / JOURNAL CARD -->
+    <section class="card">
+      <header class="report-header">
+        <h2>Does Higher Family Income Result in Better Grades? </h2>
+        <p class="report-subtitle">
+          Course: Visual Analytics &nbsp;·&nbsp;
+          <span class="badge">Family Income</span>
+          <span class="badge">Python</span>
+        </p>
+      </header>
+
+      <div class="report-body">
+        <h3>Audience & Intent</h3>
+        <p>
+          Have you ever wondered if family income was an academic privilege? As in, does a family that make more money result in children who do better academically?
+          The thing is, we do hear about those who struggle growing up yet turning it all around, and they are amazing stories. But if families who make more do succeed more often,
+          then how feasible is it for those who don't make much? How much harder is it? Well, let's take a look.
+        </p>
+
+        <h3>Income vs High School GPA</h3>
+        <img src="images/income_gpa_line.png" alt="parental income vs high school gpa"/>
+
+        <p>
+            Here we can see parental income vs high school GPA. You can easily notice that there is an upward trend for GPA for those whose family makes more money.
+            However those are the averages. You can see the max and min incomes by looking at the shaded area. There are plenty of kids whose family make $70k yet have ~2.9 GPAs.
+            That being said, more students do better with more family income. Well, we looked at high school, so what about college?
+        </p>
+
+        <h3>Income vs College GPA</h3>
+        <img src="images/income_gpa_line_college.png" alt="parental income vs college gpa"/>
+
+        <p>
+            This makes it clear, you can notice a way steeper trend upwards, as one's family makes more money, the student does better. This is likely due to college requiring more financing,
+            as you have to purchase textbooks, housing, car, transportation, and bills. People who don't need to work will have more time on their hand and less stress. Okay, so it
+            seems clear that more money equals easier school life. What if we look at those who don't make as much, such as families who make less than $50k?
+        </p>
+
+        <h3>Sub $50k Income vs High School GPA</h3>
+        <img src="images/income_gpa_line_income_less_50000.png" alt="parental income vs high school but less than 50k"/>
+
+        <p>
+            Notice how there is no constant upward trend? Seems like families who make less than $50,0000 a year are on a relatively more even scale. And of course we see that students can still perform well,
+            but the distribution is a lot more flat with small hills. Lets look at ACTs as well.
+        </p>
+
+        <h3>Income vs ACT</h3>
+        <img src="images/income_act.png" alt="parental income vs ACT"/>
+
+        <p>
+            Above we can again see a consistent but not so steep upwards trend in ACT scores and family income. So although it is upwards, it is not that much, meaning many people can still do well even
+            if their family makes more money, however, money helps! Lastly, lets look at a regression line for SAT scores and parental income.
+        </p>
+
+        <h3>Income vs SAT</h3>
+        <img src="images/income_sat_regression.png" alt="regression line"/>
+        <p>
+            Above we can see so many dots that it makes it hard to see anything. If anything, it looks like theres no correlation. However, with the regression line, we can see a slight upwards trend.
+            This means that it isn't that strong, but there is a positive correlation with income and SAT scores.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            So what did we learn? Well, it seems clear to me that family income correlates with academic performance. Of course, it's shown that you can still fail or succeed no matter how much your 
+            parents make. But overall, money is a privilege, and money suggests less stress, less worries, less bills and fees that college students need to worry about, likely guanranteed transportation
+            and room, and even tutoring or better schooling. So although anyone can succeed no matter their background, we should try to be understanding with other people, and especially understand
+            that it make take more time for people who were not fortunate growing up!
+        </p>
+
+
+        <h3>Access</h3>
+        <p>
+          <strong>
+            <a href="income_and_grades.ipynb" download>
+            Download the notebook
+          </a>
+          </strong>
+        <p>
+        <p>
+          Click here to view this project on GitHub (the HTML): <strong><a href="https://github.com/adriankUSA/portfolio/blob/main/water_consumption/water_consumption_analysis.html" target="_blank" rel="noopener">GitHub Repository</a></strong>
+          Click here to view this dashboard on Tableau: <strong><a href="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Tableau Public Link</a></strong>
+          Click here to view the dataset on Kaggle: <strong><a href="https://public.tableau.com/views/WaterConsumption_17619660622730/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" rel="noopener">Kaggle Dataset Link</a></strong>
+        </p>
+        
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+      Data source: <a href="https://www.kaggle.com/datasets/atharvasoundankar/global-water-consumption-dataset-2000-2024" target="_blank" rel="noopener">Global Water Consumption Dataset 2000-2004</a> · Built by Adrian Khlim  
+    </section>
+  </main>
+
+</body>
+</html>
