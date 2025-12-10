@@ -19,7 +19,7 @@
 
     <section class="header">
       <h1>Global Shark Attacks - Geographical Clustering</h1>
-      <p>Interactive exploration of cities with the top car accident counts in the USA.</p>
+      <p>An analysis of global shark attack incidents using geographical clustering.</p>
     </section>
 
      <!-- REPORT / JOURNAL CARD -->
@@ -28,59 +28,127 @@
         <h2>Project Journal & Findings</h2>
         <p class="report-subtitle">
           Course: Visual Analytics &nbsp;·&nbsp;
-          <span class="badge">Car Accidents</span>
-          <span class="badge">Tableau</span>
+          <span class="badge">Shark Attacks</span>
+          <span class="badge">Clustering</span>
         </p>
       </header>
 
       <div class="report-body">
-        <h3>Audience & Intent</h3>
+        <h3>Introduction</h3>
+        <p>Sharks are one of the most fascinating, and oldest apex predators on Earth. Overtime, many sharks have been going endangered due to hunting, overfishing, and pollution. However, they are also known to be scary, and people 
+          may want to avoid sharks if they can, or at least be aware of them, and perhaps avoid deadly locations. But how do we know which ones are actually deadly? This project will look into shark attack patterns using K-Means clustering.</p>
+
+        <h3>What is Clustering?</h3>
+          <p>
+          Clustering is an unsupervised machine learning technique that groups things together and then discovers patterns or similarities withing the data and groups by itself. In this casem I used K-Means clustering, which 
+          basically means you make K amount of clusters (you the programmer chooses how many clusters or groups you want) and then the algorithm will categorize your data into those amounts of clusters. Then, you can see which data goes where, and find 
+          the patterns or similarities between them.
+          </p>
+
+          <p>
+            In K-Means, you have K amount of centroids (center of each clusters), and then the the model takes a data point (like a row of data) and assigns it to the closest centroid. Every time this happens, the centroid moves to the center of all the data points
+            inside of it. Basically kind of like, the centroid updates its average or position based on each new data point added to the cluster. This continues until the centroid stops moving or moving reduces a lot. One important thing is inertia.
+            Inertia is how far away each point is from the centroid. Lower inertia = better clustering. When you increase K, inertia lowers which is good, but then too many K clusters means you will end up overfitting the data.
+          </p>
+
+        <h3>The Data</h3>
         <p>
-          The audience for this dashboard includes students, researchers, and engineers interested in the top 10 U.S. cities with the highest number of car accidents. 
-          The audience is also for those interested (or those who live in the top 10 cities or want to move to them), to see how other cities hold up and for those who want to explore accident patterns and trends over time.
+          The dataset I will be using is the Global Shark Attack dataset on <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank" rel="noopener">Kaggle</a>, compiled by the Global Shark Attack File.
+          The dataset consists of 23 features, and 25723 rows of shark attack incidents. Some of the features include: Date, Location, Activity, Name of Shark, Fatal (Y/N), Type of Attack, and more. The features of very straightforward, and self-explanatory.
+          Date is the date the attack occured, location is where it happened but specifically (maybe too specific), Area is usually the city or region but also volatile, and Country is the country it happened it. Activity is what the person was doing when the attack happened (swimming, surfing, fishing, etc) but contains so many unique values, 
+          Name of Shark is the species of shark that attacked, Fatal is whether the attack was fatal or not (Y/N), and Type of Attack is usually either unprovoked or provoked, but also contains values like boating.
+          
+          Unfortunately, the dataset consists of a lot of missing data, over 70% for most columns. For example, 76% missing for Date, Type, and Country, and 78% for Location. Therefore, I tried to focus on the columns that had the most data, and were relevant to my analysis. 
 
         </p>
-        <ul>
-          <li><strong>Audience:</strong> Students, researchers, engineers, curious individuals, and people who plan to move to or away from these top 10 cities. </li>
-          <li><strong>Intent:</strong> To allow exploration of accident and traffic patterns and trends in top U.S. cities. To also guide those who want to move to or away from these cities. To also provide information to push for changes on the roads.</li>
-   
-        </ul>
 
-        <h3>Story & Structure</h3>
-        <p>The story being told from the visual reads like a comic book. Essentially from the map of cities, side bar chart of cities, the bar chart under the map, and then the line chart. Essentially the readers get a large (country) view, into a smaller city view, into an hourly view, and finally we go back to a slightly larger view in yearly data to see overall trends.
-            I want users to dive into information, and then wrap it up with an over arching summary or visual.
-        </p>
-        <ul>
-          <li><strong>Map: </strong>This visual first introduces the reader to 100 cities with the highest number of car accidents (but I filtered only a few states for cleanliness). This lets readers examine patterns but also lets them look into a place of their choosing.
-            More importantly, this visual highlights accident counts, and users can easily notice the red dots, which indicate high accident density. This then leads to the side bar chart, where they can see those "red" or "orange" high accident cities side by side.</li>
-          <li><strong>Side Bar Chart:</strong> This chart allows readers to see the top 10 cities and their accident counts side by side. Users can also filter by city and years to gain more insight, while also seeing the average wind speed per accident and severity levels.
-            Readers can also examine the data per year. </li>
-          <li><strong>Accident Count per Hour: </strong> The previous bar chart goes from top 10 cities and accident counts, and now we dive into hourly accident counts, which can be filtered by individual cities or all of them at once, and years. </li>
-          <li><strong> Number of Accidents Yearly: </strong> This line chart provides an overview of accident trends over the years, helping to identify any long-term patterns or changes in accident frequency, such as the COVID drop for traffic, and the increase post COVID.</li>
-          <li><strong>Filters and Interactivity</strong> The dashboard includes filters for cities and years which affect all of the filters. The visuals also affect each other as filters themselves, adding interactivity but also allowing for easier depth in data analysis.</li>
-        </ul>
+        <h3>Data Understanding & Visualization</h3>
 
-        <h3>Design Choices</h3>
         <p>
-          I tried to make design choices that would enhance clarity and usability along with adding intuition. It should make sense, colorwise. I also tried to reduce clutter, but this also resulted in having to filter a lot of data out such as states and filtering.
+          I wanted to see basic statistics about the data first. For example, here are the the number of shark attacks throughout the years.
         </p>
-        <ul>
-          <li><strong>Color Choices:</strong> I chose to use contrasting colors in order to highlight high density accident areas (reds and oranges) versus low density areas (blues). I believe red usually indicates bad or high risk, while blue suggests safer or lower risk areas.</li>
-          <li><strong>Layout & Clutter Reduction: </strong> I like comics and manga, and I wanted it to be simple and easy to read, so I arranged the visuals as 4 symmetric panels. Then, thanks to the Datacamp course on Tableau, I made a lot of tweaks, such as moving the legends or filters to corresponding charts.</li>
-          <li><strong>Typography: </strong>I must admit I did not think much about typography choices, which could be an area for improvement in future iterations. I did however try to make labels and titles make sense. The default Tableau font was quite nice.</li>
-          <li><strong>Spacing: </strong>I really wanted the visuals to take up all the space, as it is simple and only 4 worksheets, and there's not lots of clusters so in this case it is easy to soak in the information or to focus on one visual. This resulted in me dropping the legend/filter area, making them all float instead.</li>
-        </ul>
+        <img src="images/Years.PNG" alt="Shark Attacks by Year" class="img-reporting"/>
 
-        <h3>Reflection</h3>
+        <p>You can see that the number of shark attacks increases throughout the years, right? That makes sense, as the population grows, and more people are in the water, there are bound to be more shark attacks. However, I immediately thought that there was
+          also more reporting counts. Especially with more media coverage, better technology and hospital/EMS practices. So I kept that in the back of my head.
+        </p>
+
+        <p>Next, I wanted to look at what kind of attacks occured.</p>
+
+        <img src="images/Type.PNG" alt="Shark Attacks by Type" class="img-reporting"/>
+
+        <p>Here we can see that most shark attaks are unprovoked, which makes sense. I'm assuming most people aren't hunting or trying to pick a fight with sharks. However I noticed two things: Boat and Boating, and Boatomg. There is a clear misspelling
+          in the data set, and Boat and Boating, to me, are the same. So in my pre-processing steps I do deal with those by combining them. From this, I do know that I want to give the clustering model the type of attacks, as they may be prevalent in certain areas,
+          especially if it is NOT unprovoked.
+        </p>
+
+        <h3>Data Pre-processing</h3>
         <p>
-          It was challenging to work with this dataset because I had to convert the timestamps of accidents into useable month/day/year data. I also struggle a lot on what I want to show people, however I think I made solid choices here. I also was 
-          able to put to practice many things I learned from the Tableau Datacamp course, such as floating elements and filtering worksheets. If I had more time, I would have liked to make it work with all states, and only highlight those top cities. I wanted users to sort cities, but not all of the cities. Basically, I wanted it to be more dynamic but still limiting to reduce clutter.
+          Since the dataset had a lot of missing data, I had to do some pre-processing steps to make sure the data was clean enough for the model. First, I removed almost  columns that had no relevancy, such as href, pdf, and Source and Investigator.
+          Then I looked at the rows with missing data, and had to choose carefully what to drop. Upon further inspection, columns like Activity and Location had way too many unique values (almost 50%), meaning it would end up as mostly noise for the model.
+          It would also have been too much for me to group. Thus I dropped it. 
+          </p>
+
+          <p>As I said, there was a lot of missing data. Firstly, for Type, I grouped Boat, Boating, and Boatomg together to correct the misspelling and combine similar categories. Then, since I want to look at geographical locations, I want to prioritize countries.
+            Thus, I dropped rows with missing Country values. I also really cared about fatality, so for those with missing values, I made them "Unknown" (~500 rows of missing data). After all these steps, I was left with 6,252 rows of data, which is still a good amount to work with.
+          </p>
+
+          <p>Here is the data of the top 20 countries and their shark attacks after processing:</p>
+
+          <img src="images/top20.PNG" alt="Processed Shark Attacks Data" class="img-reporting"/>
+
+        <h3>Modeling</h3>
+        <p>
+          As said before, I used K-Means clustering for this analysis. The reason? Truthfully it's because I used it in intro to machine learning, and wanted to try it again, and I was most comfortable with it. I could not tell you what agglomerative clustering is right now!
+          However, I did try clustering with different amounts. I tried K=3 and K=5, because using the elbow method, or where intertia starts to decrease (line starts to flatten), I wanted to see the kinds of groups I could get. However, 5 clusters had 2 groups
+          with only 1 country each, which is not useful. Thus, I went with K=3, and that is also where you can see the line start to flatten the most. One thing I had to do was also look at the count of attacks, as there are some with low counts resulting in 
+          extremely high or low fatality rates, which would be noisy or outliers or just misleading. I hypothesize that a lot of these other countries have a lot of underreported shark attacks, as the USA and Australia (first world countries) had super large counts compared to the rest.
+        </p>
+        
+        <img src="images/Elbow.PNG" alt="Shark Attacks Clusters" class="img-reporting"/>
+
+        <h3>Storytelling</h3>
+        <p>Here we can see the different clusters and the countries that belong to them.</p>
+        <img src="images/clusters_data.PNG" alt="Shark Attacks Clusters"/>
+        <p>
+          Here we can see our chosen 3 clusters. Now we can identify patterns.
+          It looks like cluster 0 seems to have to smallest unprovoked rate, with a moderately high fatality rate (27%) and the highest invalid, provoked, and sea disaster rates.
+          Cluster 1 has the highest fatality rat at 42.9%, the highest unprovoked rate at 79.9%, but only total attacks is only 47 on average.
+          Cluster 2 has the smallest fatality rate at 14.7%, but it also has the second highest unprovoked rate at 73.5% but an extremely high total attack count average at 1783. 
+          This suggests that for cluster 0, there are many different types of attacks, about half provoked and half unprovoked, which lead to a decently high fatality rate at 27%. The shark attacks in these countries seem to be deadly.
+          Cluster 1 suggests that these countries shark attacks are deadly at 41.9%, yet mostly unprovoked at 79.9%, however have small reports of shark attacks or just have less shark attacks at 47 on average. The small attack counts suggest that either shark attacks don't happen often in these countries, or that they are not being reported. It also seems like these attacks are extremely deadly.
+          Cluster 2 shows a relatively small fatality rate at 14.7%, a similar unprovoked rate as cluster 1, but an extremely high attack count, meaning these countries get frequent shark attacks, or just a lot more recorded reports. This could mean that it is more likely to be bitten by a shark here, but relatively likely to survive.
+        </p>
+        <img src="images/cluster_countries.PNG" alt="Shark Attacks Cluster Map">
+        <p>
+          Now here we can see the countries and their clusters. What's surprising is that South Africa is not in the same cluster as Australia and the USA, but those clusters likely exist due to the extremely high number of reported records, and/or lower fatality rate.
+          Cluster 1 has the most countries, but that also makes sense as having a smaller mean average of reported shark attacks is understandable, as attacks being reported in the USA and Australia seems common.
+          Cluster 0 may be countries to not visit and swim in, as many of those attacks were unprovoked. 
         </p>
 
+        <h3>Impact</h3>
+        <p>
+          The impact of this analysis is to help people decide where to swim. For example, maybe you're visiting the USA or Australia, and you want to determine if you want to swim. You know that there are a lot of reported shark attacks, but the fatality count, compared 
+          to other countries here that you may have visited, is lower. Another impact is that this lets people decide where to do further research, for example, they can see USA and Australia and want to do a regional or city based analysis to determine which places specifically 
+          are more dangerous. However, with so much missing data, this analysis may not be as accurate as it could be, and cause bad choices to be made due to inefficient data or modeling.
+        </p>
+        <p>
+          In conclusion, this k-means modeling represents how this data affects clustering, as there had to be a lot of filled in missing values, a lot of removal of rows, and thus picky feature choosing (or vice versa). Thus, this gave us smaller sample size and likely affected the clusters to not be as accurate or as separate as it could have been.
+          However, even then, we can still note patterns. There are countries where you may be attacked even without provoking sharks (cluster 0), there are countries with lower reported shark attacks, yet very high fatality rates (cluster 1), and there is the USA and Australia with very high recorded counts, but a relatively smaller fatality rate at 14.7%. Thus, this data can help people decide where they want to swim, snorkel, scuba, or research.
+        </p>
 
         <h3>Access</h3>
         <p>
+          <strong>
+            <a href="shark_attack+patterns.ipynb" download>
+            Download the notebook
+          </a>
+          </strong>
+        <p>
           Click here to view this project on GitHub (the HTML): <strong><a href="https://github.com/adriankUSA/portfolio/blob/main/shark_attacks/shark_attacks.html" target="_blank" rel="noopener">GitHub Repository</a></strong>
+
+        </p>
+        <p>
           Click here to view the dataset on Kaggle: <strong><a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank" rel="noopener">Kaggle Dataset Link</a></strong>
         </p>
       </div>
@@ -88,7 +156,7 @@
 
     <!-- Footer -->
     <section class="footer">
-        Data source: <a href="https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents" target="_blank" rel="noopener">Global Shark Attacks</a> · Built by Adrian Khlim  
+        Data source: <a href="https://www.kaggle.com/datasets/teajay/global-shark-attacks" target="_blank" rel="noopener">Global Shark Attacks</a> · Built by Adrian Khlim  
         </section>
   </main>
 
